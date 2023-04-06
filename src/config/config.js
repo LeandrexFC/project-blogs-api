@@ -20,6 +20,8 @@ const options = {
   logging: process.env.DEBUG !== 'false',
 };
 
+console.log(options);
+
 module.exports = {
   development: {
     ...options,
