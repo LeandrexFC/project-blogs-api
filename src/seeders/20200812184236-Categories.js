@@ -3,12 +3,8 @@ module.exports = {
     await queryInterface.bulkInsert('categories',
       [
         {
-          id: 1,
-          name: 'Inovação',
-        },
-        {
-          id: 2,
-          name: 'Escola',
+          id: 18,
+          name: 'News',
         },
       ], { timestamps: false });
   },

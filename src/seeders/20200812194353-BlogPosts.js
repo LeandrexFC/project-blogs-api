@@ -3,22 +3,14 @@ module.exports = {
     await queryInterface.bulkInsert('blog_posts',
       [
         {
-          id: 1,
-          title: 'Post do Ano',
-          content: 'Melhor post do ano',
-          user_id: 1,
+          id: 21,
+          title: 'Latest updates, August 1st',
+          content: 'The whole text for the blog post goes here in this key',
+          user_id: 14,
           published: new Date('2011-08-01T19:58:00.000Z'),
-          updated: new Date('2011-08-01T19:58:51.000Z'),
+          updated: new Date('2011-08-01T19:58:51.947Z'),
         },
-        {
-          id: 2,
-          title: 'Vamos que vamos',
-          content: 'Foguete não tem ré',
-          user_id: 1,
-          published: new Date('2011-08-01T19:58:00.000Z'),
-          updated: new Date('2011-08-01T19:58:51.000Z'),
-        },
-      ]);
+      ], { timestamps: false });
   },
 
   down: async (queryInterface, _Sequelize) => {
