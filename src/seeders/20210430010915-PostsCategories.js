@@ -3,9 +3,14 @@ module.exports = {
     await queryInterface.bulkInsert('posts_categories',
       [
         {
-          post_id: 50,
-          category_id: 20,
+          post_id: 1,
+          category_id: 1,
         },
+        {
+          post_id: 2,
+          category_id: 2,
+        },
+
       ], { timestamps: false });
   },
 
