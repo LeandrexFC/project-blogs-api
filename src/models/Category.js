@@ -7,7 +7,11 @@
 module.exports = (sequelize, DataTypes) => {
   const Category  = sequelize.define('Category', { // nome da model em singular e pascal case
     name: DataTypes.STRING,
-    id: DataTypes.INTEGER,
+     id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
   }, {
     sequelize,
     tableName: 'categories',

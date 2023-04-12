@@ -8,7 +8,11 @@
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     displayName: DataTypes.STRING,
     email: {
       type: DataTypes.STRING,
@@ -20,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     tableName: 'users',
     underscored: true,
+    timestamps: false
   });
 
   User.associate = (models) => {
