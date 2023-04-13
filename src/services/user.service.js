@@ -1,7 +1,6 @@
 const { User } = require('../models');
 
 const validateUser = async (displayName, email, password) => {
-  console.log(email);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (displayName.length < 8) {
     return { type: 'ERROR_LENGTH', 
@@ -12,15 +11,22 @@ const validateUser = async (displayName, email, password) => {
     return { type: 'INVALID_PASSWORD', 
     message: '"password" length must be at least 6 characters long' };
   }
-
   const user = await User.findOne({
     where: { email },
   });
-
   if (user) {
     return { type: 'ERROR', message: 'User already registered' };
   }
+  
   return { type: null, message: '' };
 };
 
-module.exports = validateUser;
+const create = async ({ displayName, email, password, image }) => {
+  const user = await User.create({ displayName, email, password, image });
+  return user;
+};
+
+module.exports = {
+  validateUser,
+  create,
+}; 
