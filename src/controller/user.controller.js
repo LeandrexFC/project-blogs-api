@@ -1,21 +1,22 @@
-const userServices = require('../services/user.services');
+const userService = require('../services/user.service');
+const generateToken = require('../utils/generateToken');
 
-const loginController = async (req, res) => {
-  const { email, password } = req.body;
-  console.log(email);
+const addNewUser = async (req, res) => {
+  const { displayName, email, password } = req.body;
 
-  const validate = await userServices(email, password);
+  const { type, message } = await userService(displayName, email, password);
 
-  const { type, message, token } = validate;
-  console.log(message);
-
-  if (type === 'FIELD_REQUIRED') {
+  if (type === 'ERROR_LENGTH') {
     return res.status(400).json({ message });
-  } if (type === 'WRONG_LOGIN') {
+  } if (type === 'INVALID_EMAIL') {
     return res.status(400).json({ message });
-  } return res.status(200).json({ token });
+  } if (type === 'INVALID_PASSWORD') {
+    return res.status(400).json({ message });
+  } if (type === 'ERROR') {
+    return res.status(409).json({ message }); 
+  } 
+    const token = generateToken({ displayName, password });
+    return res.status(201).json({ token });
 };
 
-module.exports = {
-  loginController,
-};
+module.exports = addNewUser;

@@ -1,5 +1,5 @@
 const express = require('express');
-const loginRouter = require('./routes/blogsRouter');
+const blogsRouter = require('./routes/blogsRouter');
 
 // ...
 
@@ -11,7 +11,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use(express.json());
-app.use('/login', loginRouter);
+app.use('/', blogsRouter);
 
 // ...
 

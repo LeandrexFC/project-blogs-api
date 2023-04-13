@@ -2,7 +2,6 @@ const { User } = require('../models');
 const generateToken = require('../utils/generateToken');
 
 const validateLogin = async (email, password) => {
-  console.log(!email);
   if (!email || !password) {
     return { type: 'FIELD_REQUIRED', message: 'Some required fields are missing' };
   } 
