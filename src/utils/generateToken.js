@@ -14,4 +14,20 @@ const generateToken = (payload) => {
  return token;
 };
 
-module.exports = generateToken;
+const validateToken = (token) => {
+  if (!token) {
+    return { type: 'TOKEN_REQUIRED', message: 'Miss Token' };
+  }
+  const isValid = jwt.verify(token, secretKey);
+
+  if (!isValid) {
+    return { type: 'TOKEN_INVALID', message: 'Invalid TOken' };
+  }
+
+  return { type: null, message: '' };
+};
+
+module.exports = {
+  generateToken,
+  validateToken,
+}; 
