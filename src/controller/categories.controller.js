@@ -14,6 +14,12 @@ const createCategories = async (req, res) => {
   res.status(201).json(result);
 };
 
+const getAllCategories = async (req, res) => {
+  const findAllCategories = await categoryServices.findAll();
+  return res.status(200).json(findAllCategories);
+};
+
 module.exports = {
   createCategories,
+  getAllCategories,
 };

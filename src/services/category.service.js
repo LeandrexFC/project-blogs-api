@@ -11,9 +11,15 @@ const create = async (name) => {
   const category = await Category.create({ name });
   console.log(category);
   return category;
-}; 
+};
+
+const findAll = async () => {
+  const categories = await Category.findAll();
+  return categories;
+};
 
 module.exports = {
   validateCategory,
   create,
+  findAll,
 }; 
