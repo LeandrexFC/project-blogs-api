@@ -26,7 +26,19 @@ const create = async ({ displayName, email, password, image }) => {
   return user;
 };
 
+const findAll = async () => {
+  const users = await User.findAll();
+  const results = users.map((user) => ({
+    id: user.id,
+    displayName: user.displayName,
+    email: user.email,
+    image: user.image,
+  }));
+  return results;
+};
+
 module.exports = {
   validateUser,
   create,
+  findAll,
 }; 

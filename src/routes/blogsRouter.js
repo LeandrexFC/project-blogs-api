@@ -4,6 +4,7 @@ const logincontroller = require('../controller/login.controller');
 const userController = require('../controller/user.controller');
 
 blogsRouter.post('/login', logincontroller);
-blogsRouter.post('/user', tokenValidate, userController);
+blogsRouter.post('/user', userController.createUser);
+blogsRouter.get('/user', tokenValidate, userController.getAllUsers);
 
 module.exports = blogsRouter;

@@ -1,5 +1,5 @@
 const { User } = require('../models');
-const generateToken = require('../utils/generateToken');
+const utilsToken = require('../utils/generateToken');
 
 const validateLogin = async (email, password) => {
   if (!email || !password) {
@@ -13,7 +13,7 @@ const validateLogin = async (email, password) => {
     return { type: 'WRONG_LOGIN', message: 'Invalid fields' };
   }
 
-  const token = generateToken(user.dataValues);
+  const token = utilsToken.generateToken(user.dataValues);
 
   return { type: null, message: '', token };
 };

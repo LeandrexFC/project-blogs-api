@@ -2,6 +2,9 @@ const token = require('../utils/generateToken');
 
 const tokenValidate = (req, res, next) => {
   const { authorization } = req.headers;
+  if (!authorization) {
+    console.log('error no token');
+  }
 
   const returnToken = token.validateToken(authorization);
 
@@ -9,7 +12,7 @@ const tokenValidate = (req, res, next) => {
 
   if (type === 'TOKEN_REQUIRED') {
     return res.status(401).json({ message });
-  } if (type === 'TOKEN_INVALID') {
+  } if (type === 'INVALID_TOKEN') {
     return res.status(401).json({ message });
   } 
     next();

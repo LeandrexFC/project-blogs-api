@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const secretKey = process.env.JWT_SECRET; 
 
 const configJWT = {
-  expiresIn: '1m',
+  expiresIn: '15m',
   algorithm: 'HS256',
   
 };
@@ -16,15 +16,14 @@ const generateToken = (payload) => {
 
 const validateToken = (token) => {
   if (!token) {
-    return { type: 'TOKEN_REQUIRED', message: 'Miss Token' };
+    return { type: 'TOKEN_REQUIRED', message: 'Token not found' };
   }
-  const isValid = jwt.verify(token, secretKey);
-
-  if (!isValid) {
-    return { type: 'TOKEN_INVALID', message: 'Invalid TOken' };
+  try {
+    const isValid = jwt.verify(token, secretKey);
+    return isValid;
+  } catch (err) {
+    return { type: 'INVALID_TOKEN', message: 'Expired or invalid token' };
   }
-
-  return { type: null, message: '' };
 };
 
 module.exports = {
