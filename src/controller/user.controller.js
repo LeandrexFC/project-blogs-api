@@ -25,8 +25,20 @@ const getAllUsers = async (req, res) => {
   const findAllUSers = await userService.findAll();
   return res.status(200).json(findAllUSers);
 };
+
+const getUsersById = async (req, res) => {
+  const { id } = req.params;
+  const { type, message, finalResults } = await userService.findById(id);
+
+  if (type === 'UNKNOW_USER') {
+    return res.status(404).json({ message });
+  }
+  
+  return res.status(200).json(finalResults);
+};
  
 module.exports = {
   createUser,
   getAllUsers,
+  getUsersById,
 }; 

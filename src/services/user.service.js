@@ -37,8 +37,26 @@ const findAll = async () => {
   return results;
 };
 
+const findById = async (id) => {
+  const users = await User.findOne({ where: { id } });
+
+  if (!users) {
+    return { type: 'UNKNOW_USER', message: 'User does not exist' };
+  }
+
+  const finalResults = {
+    id: users.id,
+    displayName: users.displayName,
+    email: users.email,
+    image: users.image,
+  };
+
+  return { type: null, message: '', finalResults };
+};
+
 module.exports = {
   validateUser,
   create,
   findAll,
+  findById,
 }; 
