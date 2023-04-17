@@ -9,7 +9,6 @@ const validateCategory = (name) => {
 
 const create = async (name) => {
   const category = await Category.create({ name });
-  console.log(category);
   return category;
 };
 

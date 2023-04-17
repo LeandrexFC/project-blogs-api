@@ -12,5 +12,6 @@ blogsRouter.get('/user/:id', tokenValidate, userController.getUsersById);
 blogsRouter.post('/categories', tokenValidate, categoriesController.createCategories);
 blogsRouter.get('/categories', tokenValidate, categoriesController.getAllCategories);
 blogsRouter.get('/post', tokenValidate, postController.getAllblogPost);
+blogsRouter.get('/post/:id', tokenValidate, postController.getBlogPostById);
 
 module.exports = blogsRouter;
