@@ -2,9 +2,6 @@ const token = require('../utils/generateToken');
 
 const tokenValidate = (req, res, next) => {
   const { authorization } = req.headers;
-  if (!authorization) {
-    console.log('error no token');
-  }
 
   const returnToken = token.validateToken(authorization);
 
