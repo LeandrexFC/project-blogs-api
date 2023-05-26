@@ -1,13 +1,15 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h1>Blogs API</h1>
+The Blogs API project involves the development of an API and a database for a blog content management system. The application is built using Node.js and utilizes the Sequelize package for interacting with the database. It enables CRUD operations on blog posts, following RESTful principles. The API also includes user authentication to ensure secure post creation.<br>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+<h2>Project Overview</h2>
+The main objectives of the Blogs API project are as follows:<br>
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+- Develop an API for a blog content management system.<br>
+- Create a database to store and manage blog posts.<br>
+- Implement CRUD operations for managing blog posts.<br>
+- Follow RESTful principles in designing the API.<br>
+- Include user authentication for post creation.<br>
+
+<h3>Contributors</h3>
+I created the src folder and all its contents.<br>
+Trybe - Provided the remaining files and resources for the project.<br>
